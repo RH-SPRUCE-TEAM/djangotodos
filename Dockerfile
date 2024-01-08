@@ -2,6 +2,7 @@ FROM registry.access.redhat.com/ubi9/python-311@sha256:8a067206cbdbf73a39261f11c
 
 # python settings
 ENV PYTHONDONTWRITEBYTECODE 1
+ENV SECRET_KEY 'django-insecure-#zd522dfd9)ce1j4*-lj%t@r$syze#@+$(9j89td=@+t8d)!k+'
 
 # Add application sources with correct permissions for OpenShift
 USER 0
