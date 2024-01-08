@@ -121,6 +121,8 @@ Make sure you are in the namespace/project you want this deployed to.
 
 ## Local
 
+These instructions is how you setup this app locally.
+
 ### Prerequisite
 1. Python 3.12
 
