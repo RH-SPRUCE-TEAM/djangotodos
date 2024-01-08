@@ -53,7 +53,7 @@ Make sure you are in the namespace/project you want this deployed to.
       --env POSTGRESQL_PASSWORD=todopassword \
       --env POSTGRESQL_ADMIN_PASSWORD=adminpassword \
       --env POSTGRESQL_DATABASE=todos \
-      --image registry.redhat.io/rhel9/postgresql-15@sha256:802c7926383f9e4b31ac48dd42e5b7cce920c8ef09920abe2724e50a84fbea0b
+      --docker-image registry.redhat.io/rhel9/postgresql-15@sha256:802c7926383f9e4b31ac48dd42e5b7cce920c8ef09920abe2724e50a84fbea0b
     ```
 
 2. Create app, wait until it's up before proceeding
