@@ -11,7 +11,7 @@ This is how to run the app within a Dev Space workspace.
 2. Navigate to `https://<openshift_dev_spaces_fqdn>/dashboard/#/user-preferences?tab=personal-access-tokens` and add the PAT
 
 ### Run/Debug App
-1. Open a Dev Space with url `https://github.com/jkeam/djangotodos.git`
+1. Open a Dev Space with url `https://github.com/RH-SPRUCE-TEAM/djangotodos.git`
 2. Install extensions - cmd + shift + x -> Open the RECOMMENDED section and install all extensions
 3. Run Setup - cmd + shift + p -> Tasks: Run Task -> devfile -> Setup project
 4. Step above will print the DB Client URL to the terminal.  cmd + click the URL to open it in a new tab -> Open
@@ -68,7 +68,7 @@ Make sure you are in the namespace/project you want this deployed to.
       --env DB_PASSWORD=adminpassword \
       --env DB_HOST=db \
       --env DB_PORT=5432 \
-      https://github.com/jkeam/djangotodos.git
+      https://github.com/RH-SPRUCE-TEAM/djangotodos.git
     ```
 
 3. Expose app
@@ -109,7 +109,7 @@ Make sure you are in the namespace/project you want this deployed to.
     oc label deployments/db app.kubernetes.io/name=db
     # annotations
     oc annotate deployments/djangotodos app.openshift.io/connects-to='[{"apiVersion":"apps/v1","kind":"Deployment","name":"db"}]'
-    oc annotate deployments/djangotodos app.openshift.io/vcs-uri='https://github.com/jkeam/djangotodos.git'
+    oc annotate deployments/djangotodos app.openshift.io/vcs-uri='https://github.com/RH-SPRUCE-TEAM/djangotodos.git'
     oc annotate deployments/djangotodos app.openshift.io/vcs-ref='main'
     ```
 
