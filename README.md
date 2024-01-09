@@ -7,7 +7,7 @@ Simple Django Todo app.  Below are the setup instructions for various environmen
 This is how to run the app within a Dev Space workspace.
 
 ### GitHub Access
-1. Generate a PAT for your GitHub Repo.  Make sure to give access to commit and clone the repo
+1. Generate a personal access token (PAT) for your GitHub Repo.  Make sure to give access to commit and clone the repo
 2. Navigate to `https://<openshift_dev_spaces_fqdn>/dashboard/#/user-preferences?tab=personal-access-tokens` and add the PAT
 
 ### Run/Debug App
