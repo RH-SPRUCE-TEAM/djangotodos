@@ -74,43 +74,43 @@ Make sure you are in the namespace/project you want this deployed to.
 3. Expose app
 
     ```shell
-    oc create route edge --service=djangotodos
+    oc create route edge --service=spruce-app
     ```
 
 4. Migrate database
 
     ```shell
-    oc exec pods/$(oc get pods | grep Running  | grep djangotodos | awk '{print $1}') -- python ./manage.py migrate
+    oc exec pods/$(oc get pods | grep Running  | grep spruce-app | awk '{print $1}') -- python ./manage.py migrate
     ```
 
 5. Create user for the app
 
     ```shell
-    oc exec pods/$(oc get pods | grep Running  | grep djangotodos | awk '{print $1}') -- bash -c "DJANGO_SUPERUSER_PASSWORD=password1 && python3 manage.py createsuperuser --username admin --email admin@example.com --noinput"
+    oc exec pods/$(oc get pods | grep Running  | grep spruce-app | awk '{print $1}') -- bash -c "DJANGO_SUPERUSER_PASSWORD=password1 && python3 manage.py createsuperuser --username admin --email admin@example.com --noinput"
     ```
 
 6. Set allowed and csrf host
 
     ```shell
-    oc set env deployments/djangotodos ALLOWED_HOSTS=$(oc get routes | grep djangotodos | awk '{print $2}')
+    oc set env deployments/spruce-app ALLOWED_HOSTS=$(oc get routes | grep spruce-app | awk '{print $2}')
     ```
 
 7. Add annotations and labels
 
     ```shell
     # labels
-    oc label deployments/djangotodos app.kubernetes.io/part-of=django-todo-app
-    oc label deployments/djangotodos app.openshift.io/runtime=python
-    oc label deployments/djangotodos app.openshift.io/runtime-version=3.12
-    oc label deployments/djangotodos app.kubernetes.io/name=djangotodos
+    oc label deployments/spruce-app app.kubernetes.io/part-of=django-todo-app
+    oc label deployments/spruce-app app.openshift.io/runtime=python
+    oc label deployments/spruce-app app.openshift.io/runtime-version=3.12
+    oc label deployments/spruce-app app.kubernetes.io/name=spruce-app
     oc label deployments/db app.kubernetes.io/part-of=django-todo-app
     oc label deployments/db app.openshift.io/runtime=postgresql
     oc label deployments/db app.openshift.io/runtime-version=15
     oc label deployments/db app.kubernetes.io/name=db
     # annotations
-    oc annotate deployments/djangotodos app.openshift.io/connects-to='[{"apiVersion":"apps/v1","kind":"Deployment","name":"db"}]'
-    oc annotate deployments/djangotodos app.openshift.io/vcs-uri='https://github.com/jkeam/djangotodos.git'
-    oc annotate deployments/djangotodos app.openshift.io/vcs-ref='main'
+    oc annotate deployments/spruce-app app.openshift.io/connects-to='[{"apiVersion":"apps/v1","kind":"Deployment","name":"db"}]'
+    oc annotate deployments/spruce-app app.openshift.io/vcs-uri='https://github.com/RH-SPRUCE-TEAM/djangotodos.git'
+    oc annotate deployments/spruce-app app.openshift.io/vcs-ref='main'
     ```
 
 8. Open URL to app
