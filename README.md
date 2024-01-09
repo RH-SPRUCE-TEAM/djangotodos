@@ -1,6 +1,6 @@
 # Django Todo
 
-Simple Django Todo app.  Below are the setup instructions for various environments.
+Simple Django Todo app.  Below are the setup instructions for various environments...
 
 ## Dev Spaces
 
